@@ -22,7 +22,6 @@ class NeuralNetwork {			// Neural Network class...
 
 
 	public:
-
 		NeuralNetwork(int input_nodes, int hidden_nodes, int output_nodes) {		// Constructor to get number of input, hidden, output nodes to generate weight and bias matrices. . .
 
 			this->input_nodes = input_nodes;
