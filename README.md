@@ -9,6 +9,7 @@ Contains all the functions for all matix operations including the activation fun
 
 # main.cpp
 Driver program to test and use the Neural Network Library....
-
-Modify it and use it to your will!!! Contribution by: Valluri Pavan Preetham... 
+ 
+# Contribution by: Valluri Pavan Preetham... 
+Modify it and use it to your will!!!
 
