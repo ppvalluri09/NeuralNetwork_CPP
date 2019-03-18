@@ -36,6 +36,7 @@ class Matrix {                          // A matrix class containing the matrix,
                 int rows;
                 int cols;
                 long double *data[MAX_ROWS];
+	
         public:
                 Matrix(int rows, int cols) {            // Matrix constructor with the number of rows and columns. . .
                         this->rows = rows;
