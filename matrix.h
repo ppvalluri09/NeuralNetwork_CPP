@@ -31,7 +31,6 @@ long double elu(long double x) {                          // ELU (Exponential Li
 
 
 class Matrix {                          // A matrix class containing the matrix, number of rows and columns. . .
-
         private:
                 int rows;
                 int cols;
