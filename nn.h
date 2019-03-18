@@ -9,7 +9,6 @@
 using namespace std;
 
 class NeuralNetwork {			// Neural Network class...
-	
 	private:
 		int input_nodes;		// Input Layer...
 		int hidden_nodes;		// Hidden Layer...
@@ -23,7 +22,6 @@ class NeuralNetwork {			// Neural Network class...
 
 	public:
 		NeuralNetwork(int input_nodes, int hidden_nodes, int output_nodes) {		// Constructor to get number of input, hidden, output nodes to generate weight and bias matrices. . .
-
 			this->input_nodes = input_nodes;
 			this->hidden_nodes = hidden_nodes;
 			this->output_nodes = output_nodes;
