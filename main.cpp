@@ -5,7 +5,6 @@
 using namespace std;
 
 int main() {
-
 	srand(time(NULL));
 	
 	long double inputs[] = {1, 0};		// Input data
