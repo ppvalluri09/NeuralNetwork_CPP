@@ -47,13 +47,13 @@ class NeuralNetwork {			// Neural Network class...
 long double* NeuralNetwork::predict(long double* input_array, int length) {
 	Matrix inputs = Matrix::fromArray(input_array, length);
 	Matrix hidden = (this->weights_ih) * inputs;
-	hidden = hidden + (this->bias_h);
+	hidden += (this->bias_h);
 	// Activation Function
 	hidden = Matrix::map(hidden, 1);
 
 	Matrix output = (this->weights_ho) * hidden;
 	//output = Matrix::add(output, this->bias_o);
-	output = output + (this->bias_o);
+	output += (this->bias_o);
 	// Activation Function
 	output = Matrix::map(output, 1);
 	output.print();
@@ -64,12 +64,12 @@ long double* NeuralNetwork::predict(long double* input_array, int length) {
 void NeuralNetwork::train(long double* input_array, int input_length, long double* target_array, int target_length) {
 	Matrix inputs = Matrix::fromArray(input_array, input_length);
 	Matrix hidden = (this->weights_ih) * inputs;
-	hidden = hidden + (this->bias_h);
+	hidden += (this->bias_h);
 	// Activation Function
 	hidden = Matrix::map(hidden, 1);
 
 	Matrix outputs = (this->weights_ho) * hidden;
-	outputs = outputs + (this->bias_o);
+	outputs += (this->bias_o);
 	// Activation Function
 	outputs = Matrix::map(outputs, 1);
 
@@ -88,8 +88,8 @@ void NeuralNetwork::train(long double* input_array, int input_length, long doubl
 	Matrix hidden_t = Matrix::transpose(hidden);
 	Matrix weight_ho_deltas = Matrix::multiply(gradients, hidden_t);
 	// Adjust the bais by its deltas
-	this->weights_ho = (this->weights_ho) + weight_ho_deltas;
-	this->bias_o = (this->bias_o) + gradients;
+	(this->weights_ho) += weight_ho_deltas;
+	(this->bias_o) += gradients;
 
 	// Calculate hidden layer errors...
 	Matrix who_t = Matrix::transpose(this->weights_ho);
@@ -105,6 +105,6 @@ void NeuralNetwork::train(long double* input_array, int input_length, long doubl
 	Matrix weight_ih_deltas = hidden_gradient * inputs_t;
 
 	// Adjust weights and bias...
-	this->weights_ih = (this->weights_ih) + weight_ih_deltas;
-	this->bias_h = (this->bias_h) + hidden_gradient;
+	(this->weights_ih) += weight_ih_deltas;
+	(this->bias_h) += hidden_gradient;
 }
