@@ -77,11 +77,40 @@ class Matrix {                          // A matrix class containing the matrix,
                 Matrix operator + (Matrix const &m);
                 Matrix operator - (Matrix const &m);
                 Matrix operator * (Matrix const &m);
+		Matrix& operator +=(Matrix const &m);
+		Matrix& operator -=(Matrix const &m);
+
 
                 long double getValue() {
                         return this->data[0][0];
                 }
 };
+
+Matrix& Matrix::operator +=(Matrix const &m)  {
+        if (this->rows != m.rows || this->cols != m.cols)
+                cout<<"Number of rows and columns must be equal!!!"<<endl;
+        else {
+                for (int i = 0; i < this->rows; i++) {
+                        for (int j = 0; j < this->cols; j++) {
+                                this->data[i][j] += m.data[i][j];
+                        }
+                }
+        }
+        return *this;
+}
+
+Matrix& Matrix::operator -=(Matrix const &m)  {
+        if (this->rows != m.rows || this->cols != m.cols)
+                cout<<"Number of rows and columns must be equal!!!"<<endl;
+        else {
+                for (int i = 0; i < this->rows; i++) {
+                        for (int j = 0; j < this->cols; j++) {
+                                this->data[i][j] -= m.data[i][j];
+                        }
+                }
+        }
+        return *this;
+}
 
 Matrix Matrix::operator +(Matrix const &m)  {
         Matrix x(this->rows, this->cols);
