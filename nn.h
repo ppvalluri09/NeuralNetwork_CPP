@@ -40,6 +40,8 @@ class NeuralNetwork {			// Neural Network class...
 			this->learning_rate = 0.1;
 		}
 
+		void saveModel();
+		void loadModel();
 		long double* predict(long double*, int);
 		void train(long double*, int, long double*, int);
 };
