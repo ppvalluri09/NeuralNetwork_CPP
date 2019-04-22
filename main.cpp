@@ -1,6 +1,23 @@
-#include"nn.h"
-#include"matrix.h"
-#include<math.h>
+#ifdef linux				// Checking for Linux
+
+	#include<math.h>
+	#include"matrix.h"
+	#include"nn.h"
+	#include<string.h>
+
+#endif
+
+#ifdef WIN32				// Checking for Windows
+
+	#include<math.h>
+	#include"matrix.h"
+	#include"nn.h"
+	#include<string.h>
+	#include<conio.h>
+
+#endif
+
+
 
 using namespace std;
 
