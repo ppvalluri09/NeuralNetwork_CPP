@@ -18,6 +18,7 @@ int main() {
 		nn.train(inputs, 2, targets, 1);	// Training the Neural Network with the test input data and the targets
 		
 	cout<<"Predicted Output: ";
-	nn.predict(inputs, 2);			// Predicting the output of the Neural Network...
+	Matrix output = nn.predict(inputs, 2);			// Predicting the output of the Neural Network...
+	output.print();
 	return 0;
 }
