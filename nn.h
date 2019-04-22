@@ -42,11 +42,11 @@ class NeuralNetwork {			// Neural Network class...
 
 		void saveModel();
 		void loadModel();
-		long double* predict(long double*, int);
+		Matrix predict(long double*, int);
 		void train(long double*, int, long double*, int);
 };
 
-long double* NeuralNetwork::predict(long double* input_array, int length) {
+Matrix NeuralNetwork::predict(long double* input_array, int length) {
 	Matrix inputs = Matrix::fromArray(input_array, length);
 	Matrix hidden = (this->weights_ih) * inputs;
 	hidden = hidden + (this->bias_h);
@@ -58,9 +58,8 @@ long double* NeuralNetwork::predict(long double* input_array, int length) {
 	output = output + (this->bias_o);
 	// Activation Function
 	output = Matrix::map(output, 1);
-	output.print();
-
-	//return output;
+	
+	return output;
 }
 
 void NeuralNetwork::train(long double* input_array, int input_length, long double* target_array, int target_length) {
