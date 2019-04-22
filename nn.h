@@ -42,9 +42,28 @@ class NeuralNetwork {			// Neural Network class...
 
 		void saveModel();
 		void loadModel();
+		void setParams(int, int, int); 
 		Matrix predict(long double*, int);
 		void train(long double*, int, long double*, int);
 };
+
+void NeuralNetwork::setParams(int input_nodes, int hidden_nodes, int output_nodes) {
+	this->input_nodes = input_nodes;
+	this->hidden_nodes = hidden_nodes;
+	this->output_nodes = output_nodes;
+
+	weights_ih.setSize(this->hidden_nodes, this->input_nodes);
+	weights_ho.setSize(this->output_nodes, this->hidden_nodes);
+	weights_ih.randomize();
+	weights_ho.randomize();
+
+
+	bias_h.setSize(this->hidden_nodes, 1);
+	bias_o.setSize(this->output_nodes, 1);
+	bias_h.randomize();
+	bias_o.randomize();
+
+}
 
 Matrix NeuralNetwork::predict(long double* input_array, int length) {
 	Matrix inputs = Matrix::fromArray(input_array, length);
